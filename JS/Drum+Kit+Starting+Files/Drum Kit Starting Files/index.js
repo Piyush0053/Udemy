@@ -8,12 +8,14 @@ for(var i=0;i<n;i++){
     document.querySelectorAll(".drum")[i].addEventListener("click",function() {
         var takingTouchButton = this.innerHTML;
         makesound(takingTouchButton);
+        buttonAnimation(takingTouchButton);
     });
 }
 
 // Detecting Keyboard Press
 document.addEventListener("keydown", (event)=>{
     makesound(event.key);
+    buttonAnimation(event.key);
 });
 
 // Playing Sound
@@ -54,4 +56,13 @@ function makesound(key){
         default: console.log(takingInputButton);
          
     }
+}
+
+function buttonAnimation(currentkey){
+  var activeButton=   document.querySelector("."+ currentkey );
+  activeButton.classList.add("pressed");
+  setTimeout(function(){
+    activeButton.classList.remove("pressed");
+  }, 100);
+  
 }
