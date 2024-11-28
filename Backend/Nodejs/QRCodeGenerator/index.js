@@ -16,7 +16,7 @@ inquirer
     // Use user feedback for... whatever!!
     const url= answers.URL;
     var qr_svg = qr.image(url, { type: 'png'});
-    qr_svg.pipe(fs.createWriteStream('qr_img.pdf'));
+    qr_svg.pipe(fs.createWriteStream('qr_img.png'));
 
     fs.writeFile('URL.txt', url, (err) => {
         if (err) throw err;
