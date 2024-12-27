@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Post with Dark/Light Mode</title>
     <link rel="stylesheet" href="/styles.css">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <title>Create New Post</title>
 </head>
 <body>
+    <button class="mode-switcher" aria-label="Toggle dark mode">☀️</button>
+
     <div class="container mt-5">
         <h1 class="text-center mb-4">Create New Post</h1>
         <form action="/new" method="POST">
@@ -17,9 +18,32 @@
             <div class="form-group">
                 <textarea name="content" class="form-control" placeholder="Content" required></textarea>
             </div>
-            <button type="submit" class="btn btn-success btn-block">Submit</button>
+            <button type="submit" class="btn btn-success">Submit</button>
         </form>
-        <a href="/" class="btn btn-link mt-3">Back to Home</a>
+        <a href="/" class="btn btn-link">Back to Home</a>
     </div>
+
+    <script>
+        const modeSwitcher = document.querySelector('.mode-switcher');
+        const body = document.body;
+
+        // Check localStorage for dark mode preference
+        if (localStorage.getItem('dark-mode') === 'enabled') {
+            body.classList.add('dark-mode');
+            modeSwitcher.textContent = '🌙'; // Change icon to indicate dark mode
+        }
+
+        modeSwitcher.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            modeSwitcher.textContent = body.classList.contains('dark-mode') ? '🌙' : '☀️';
+
+            // Save the current mode to localStorage
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('dark-mode', 'enabled');
+            } else {
+                localStorage.setItem('dark-mode', 'disabled');
+            }
+        });
+    </script>
 </body>
 </html>

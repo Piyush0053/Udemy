@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/styles.css">
-    <title>Blog</title>
+    <title>Blog with Dark/Light Mode</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg">
         <a class="navbar-brand" href="/">My Blog</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -20,6 +20,9 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/new">Create Post</a>
+                </li>
+                <li class="nav-item">
+                    <button class="mode-switcher" aria-label="Toggle dark mode">☀️</button>
                 </li>
             </ul>
         </div>
@@ -40,10 +43,41 @@
         </div>
     </div>
 
-    <footer class="bg-dark text-white text-center py-3">
+    <footer class="text-center py-3">
         <p>&copy; 2023 My Blog. All rights reserved.</p>
     </footer>
 
+    <script>
+        const modeSwitcher = document.querySelector('.mode-switcher');
+        const body = document.body;
+        const navbar = document.querySelector('.navbar');
+        const cards = document.querySelectorAll('.card');
+        const footer = document.querySelector('footer');
+
+        // Check localStorage for dark mode preference
+        if (localStorage.getItem('dark-mode') === 'enabled') {
+            body.classList.add('dark-mode');
+            navbar.classList.add('dark-mode');
+            footer.classList.add('dark-mode');
+            cards.forEach(card => card.classList.add('dark-mode'));
+            modeSwitcher.textContent = '🌙'; // Change icon to indicate dark mode
+        }
+
+        modeSwitcher.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            navbar.classList.toggle('dark-mode');
+            footer.classList.toggle('dark-mode');
+            cards.forEach(card => card.classList.toggle('dark-mode'));
+            modeSwitcher.textContent = body.classList.contains('dark-mode') ? '🌙' : '☀️';
+
+            // Save the current mode to localStorage
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('dark-mode', 'enabled');
+            } else {
+                localStorage.setItem('dark-mode', 'disabled');
+            }
+        });
+    </script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark and Light Mode</title>
+    <style>
+        :root {
+            --background-light: #ffffff;
+            --background-dark: #121212;
+            --text-light: #000000;
+            --text-dark: #ffffff;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: var(--background-light);
+            color: var(--text-light);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body.dark-mode {
+            background-color: var(--background-dark);
+            color: var(--text-dark);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background-color: var(--background-light);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s;
+        }
+
+        .navbar.dark-mode {
+            background-color: var(--background-dark);
+        }
+
+        .mode-switcher {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-light);
+            transition: color 0.3s;
+        }
+
+        body.dark-mode .mode-switcher {
+            color: var(--text-dark);
+        }
+
+        .mode-switcher:focus {
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div>Brand Name</div>
+        <button class="mode-switcher" aria-label="Toggle dark mode">☀️</button>
+    </nav>
+
+    <main>
+        <h1>Welcome to the Dark and Light Mode Switcher</h1>
+        <p>Toggle the button in the top right corner to switch modes.</p>
+    </main>
+
+    <script>
+        const modeSwitcher = document.querySelector('.mode-switcher');
+        const body = document.body;
+        const navbar = document.querySelector('.navbar');
+
+        modeSwitcher.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            navbar.classList.toggle('dark-mode');
+            modeSwitcher.textContent = body.classList.contains('dark-mode') ? '🌙' : '☀️';
+        });
+    </script>
+</body>
+</html>
