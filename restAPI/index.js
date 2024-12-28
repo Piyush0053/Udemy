@@ -30,6 +30,7 @@ app.get('/api/users/:id', (req,res)=>{
 
 // Rests API to print all the data
 app.get('/api/users',(req,res)=>{
+    res.setHeader("X-myname",12);
  return res.json(users);
 });
 
