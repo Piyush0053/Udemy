@@ -16,7 +16,7 @@ app.use(express.static(path.join(__dirname,"public")));
 
 app.use(methodOverride('_method'));
 
-// Create an array
+// Create an array database
 let posts=[
     {   
         id:uuidv4(),
