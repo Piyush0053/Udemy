@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  :root.dark {
+    color-scheme: dark;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Transitions */
+* {
+  @apply transition-colors duration-200;
+}
+
+/* Custom gradient background for dark mode */
+.dark .gradient-bg {
+  background: linear-gradient(to bottom right, #1a1a1a, #2a2a2a);
+}
