@@ -11,10 +11,14 @@ export default function WeatherApp(){
     tempMin: 21.1,
     weather: "Cloudy",
     });
+
+    const updateInfo=(newInfo)=>{
+        setWeatherInfo(newInfo);
+    };
     return(
         <div style={{textAlign:"center"}}>
             <h3>Weather Widget</h3>
-            <SearchBox/>
+            <SearchBox updateInfo={updateInfo}/>
             <InfoBox info={weatherInfo}/>
         </div>
     )
