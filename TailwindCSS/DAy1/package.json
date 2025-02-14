@@ -1,0 +1,20 @@
+{
+  "name": "day1",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "vite",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "vite": "^6.1.0"
+  },
+  "devDependencies": {
+    "postcss": "^8.5.2",
+    "tailwindcss": "^4.0.6"
+  }
+}
