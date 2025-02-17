@@ -6,6 +6,7 @@
     justify-content: space-between;
     background-color: #f0f4f9; /* Example background color */
     padding: 25px 15px; 
+    position: relative; /* Make the sidebar a positioned element */
 }
 
 .sidebar img{
@@ -34,6 +35,7 @@
 .sidebar .recent{
     display: flex;
     flex-direction: column;
+    animation:fadeIn 1.5s;
 }
 .sidebar .recent-title{
     margin-bottom: 30px;   
@@ -51,9 +53,7 @@
     cursor:pointer;
 }
 
-.sidebar .recent-entry:hover{
-    background-color: #e2e6eb;
-}
+
 .sidebar .bottom{
     display: flex;
     flex-direction: column;
@@ -63,4 +63,32 @@
     padding-right: 10px;
     cursor: pointer;
 
+}
+
+.theme-toggle {
+    position: absolute; /* Position it absolutely within the sidebar */
+    bottom: 10px; /* Distance from the bottom */
+    left: 10px; /* Distance from the left */
+    cursor: pointer; /* Change cursor to pointer */
+    padding: 5px 10px; /* Add some padding */
+    background-color: #ffffff; /* Background color for the button */
+    border: 1px solid #ccc; /* Border for the button */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s; /* Smooth transition for background color */
+}
+
+.theme-toggle:hover {
+    background-color: #e0e0e0; /* Change background on hover */
+}
+
+/* Dark theme styles */
+.sidebar.dark .theme-toggle {
+    background-color: #333; /* Dark background for the button in dark mode */
+    color: #ffffff; /* White text in dark mode */
+}
+
+@media(max-width:600px){
+    .sidebar{
+        display: none;
+    }
 }
