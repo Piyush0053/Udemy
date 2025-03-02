@@ -1,0 +1,152 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: black;
+    color: white;
+  }
+  
+  /* Header */
+  .header {
+    position: fixed;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(128, 128, 128, 0.3);
+    z-index: 50;
+  }
+  
+  .header-gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(59, 130, 246, 0.1), rgba(147, 51, 234, 0.1));
+  }
+  
+  .nav {
+    max-width: 1200px;
+    margin: auto;
+    padding: 10px 20px;
+    position: relative;
+  }
+  
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+  }
+  
+  .logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+  
+  .logo-icon {
+    width: 30px;
+    height: 30px;
+    color: blue;
+    transition: transform 0.5s;
+  }
+  
+  .logo-link:hover .logo-icon {
+    transform: rotate(180deg);
+  }
+  
+  .logo-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(to right, blue, purple);
+  }
+  
+  /* Navigation Links */
+  .nav-links {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .nav-item {
+    color: gray;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .nav-item:hover {
+    color: white;
+  }
+  
+  /* Buttons */
+  .login-btn {
+    background: none;
+    border: none;
+    color: gray;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  
+  .login-btn:hover {
+    color: white;
+  }
+  
+  .cta-btn {
+    background: linear-gradient(to right, blue, purple);
+    padding: 10px 20px;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+  
+  .cta-icon {
+    margin-left: 5px;
+    transition: transform 0.5s;
+  }
+  
+  .cta-icon.hovered {
+    transform: scale(1.2);
+  }
+  
+  /* Hero Section */
+  .hero {
+    padding: 150px 20px;
+    text-align: center;
+  }
+  
+  .hero-title {
+    font-size: 3rem;
+    font-weight: bold;
+    background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(to right, blue, purple);
+  }
+  
+  .hero-description {
+    color: gray;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+  
+  /* Inputs */
+  .scan-input {
+    width: 100%;
+    padding: 10px;
+    background: rgba(128, 128, 128, 0.1);
+    border: 1px solid gray;
+    color: white;
+    border-radius: 5px;
+  }
+  
+  /* Scan Button */
+  .scan-btn {
+    width: 100%;
+    padding: 10px;
+    background: linear-gradient(to right, blue, purple);
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
