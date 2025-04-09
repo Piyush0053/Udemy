@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Create Extension Icons</title>
+</head>
+<body>
+  <h1>Extension Icon Generator</h1>
+  <p>Open browser console to see the data URLs for icons</p>
+  
+  <canvas id="icon16" width="16" height="16"></canvas>
+  <canvas id="icon48" width="48" height="48"></canvas>
+  <canvas id="icon128" width="128" height="128"></canvas>
+  
+  <script>
+    // Function to draw icon
+    function drawIcon(canvas, size) {
+      const ctx = canvas.getContext('2d');
+      
+      // Background
+      ctx.fillStyle = '#3498db';
+      ctx.fillRect(0, 0, size, size);
+      
+      // Border
+      ctx.strokeStyle = '#2980b9';
+      ctx.lineWidth = Math.max(1, size / 16);
+      ctx.strokeRect(0, 0, size, size);
+      
+      // Draw rupee symbol
+      ctx.fillStyle = 'white';
+      ctx.font = `bold ${Math.floor(size * 0.6)}px Arial`;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('₹', size / 2, size / 2);
+      
+      // Log data URL
+      console.log(`Icon ${size}x${size}:`, canvas.toDataURL('image/png'));
+    }
+    
+    // Draw icons
+    drawIcon(document.getElementById('icon16'), 16);
+    drawIcon(document.getElementById('icon48'), 48);
+    drawIcon(document.getElementById('icon128'), 128);
+  </script>
+</body>
+</html> 

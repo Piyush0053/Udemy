@@ -1,0 +1,301 @@
+/* Global styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  color: #333;
+  background-color: #f8f9fa;
+}
+
+.container {
+  width: 350px;
+  padding: 15px;
+}
+
+h1 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: #2c3e50;
+  text-align: center;
+}
+
+h2 {
+  font-size: 16px;
+  margin: 10px 0;
+  color: #34495e;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 5px;
+}
+
+/* Summary section */
+.summary-section {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.total-spent {
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+/* Platform section */
+.platform-section {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.platform-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.platform-name {
+  font-weight: 500;
+}
+
+.progress-bar {
+  height: 10px;
+  background-color: #ecf0f1;
+  border-radius: 5px;
+  margin-top: 5px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: #3498db;
+  border-radius: 5px;
+  transition: width 0.3s ease;
+}
+
+.over-budget .progress-fill {
+  background-color: #e74c3c;
+}
+
+/* Budget section */
+.budget-section {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+select, input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
+#save-budget {
+  width: 100%;
+}
+
+/* Expense section */
+.expense-section {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.expense-item {
+  padding: 8px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.expense-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.expense-platform {
+  font-weight: 500;
+}
+
+.expense-date {
+  color: #7f8c8d;
+  font-size: 12px;
+}
+
+.expense-amount {
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.expense-description {
+  font-size: 12px;
+  color: #7f8c8d;
+  margin-top: 3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Add expense container */
+.add-expense-container {
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* View all expenses button */
+.view-all-expenses {
+  margin-top: 10px;
+  text-align: center;
+  padding-top: 8px;
+  border-top: 1px dashed #eee;
+}
+
+#view-all-expenses {
+  background-color: #2ecc71;
+  padding: 6px 12px;
+  font-size: 13px;
+  width: 100%;
+}
+
+#view-all-expenses:hover {
+  background-color: #27ae60;
+}
+
+#add-custom-expense {
+  width: 100%;
+  background-color: #9b59b6;
+  margin-top: 5px;
+}
+
+#add-custom-expense:hover {
+  background-color: #8e44ad;
+}
+
+/* Action buttons */
+.action-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.action-buttons button {
+  flex: 1;
+  margin: 0 5px;
+}
+
+#clear-data {
+  background-color: #e74c3c;
+}
+
+#clear-data:hover {
+  background-color: #c0392b;
+}
+
+/* Alert styles */
+.alert {
+  padding: 8px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.alert-success {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.alert-warning {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.alert-danger {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+/* Loading indicators */
+.loading-indicator {
+  text-align: center;
+  padding: 15px;
+  color: #7f8c8d;
+}
+
+.loading-indicator::after {
+  content: "...";
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% { content: "."; }
+  33% { content: ".."; }
+  66% { content: "..."; }
+}
+
+/* Empty state */
+.empty-state {
+  text-align: center;
+  padding: 15px;
+  color: #7f8c8d;
+}
+
+.empty-state-icon {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #bdc3c7;
+}
+
+/* Debug mode indicator */
+.debug-mode-indicator {
+  position: fixed;
+  bottom: 5px;
+  right: 5px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 2px 5px;
+  border-radius: 3px;
+  font-size: 10px;
+  opacity: 0.5;
+} 

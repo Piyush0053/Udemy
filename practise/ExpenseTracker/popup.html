@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Expense Tracker</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Expense Tracker</h1>
+    </header>
+    
+    <div class="summary-section">
+      <h2>Spending Summary</h2>
+      <div class="total-spent">
+        <span>Total spent:</span>
+        <span id="total-amount" class="loading-indicator">Loading</span>
+      </div>
+    </div>
+    
+    <div class="platform-section">
+      <h2>Platform Breakdown</h2>
+      <div id="platform-stats" class="loading-indicator">
+        Loading platform data
+      </div>
+    </div>
+    
+    <div class="budget-section">
+      <h2>Budget Settings</h2>
+      <form id="budget-form">
+        <div class="form-group">
+          <label for="platform-select">Platform:</label>
+          <select id="platform-select">
+            <option value="all">All Platforms</option>
+            <option value="amazon">Amazon</option>
+            <option value="flipkart">Flipkart</option>
+            <option value="swiggy">Swiggy</option>
+            <option value="zomato">Zomato</option>
+            <option value="zepto">Zepto</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="budget-amount">Monthly Budget (₹):</label>
+          <input type="number" id="budget-amount" min="0" step="100" value="5000">
+        </div>
+        
+        <button type="submit" id="save-budget">Save Budget</button>
+      </form>
+    </div>
+    
+    <div class="expense-section">
+      <h2>Recent Expenses</h2>
+      <div id="expense-list" class="loading-indicator">
+        Loading expenses
+      </div>
+      <div class="add-expense-container">
+        <button id="add-custom-expense">Add Custom Expense</button>
+      </div>
+    </div>
+    
+    <div class="action-buttons">
+      <button id="generate-report">Generate Report</button>
+      <button id="clear-data">Clear All Data</button>
+    </div>
+
+    <div id="debug-toggle" class="debug-mode-indicator" title="Toggle debug mode">
+      Debug
+    </div>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html> 

@@ -1,0 +1,49 @@
+{
+  "manifest_version": 3,
+  "name": "Expense Tracker",
+  "version": "1.0",
+  "description": "Track and manage expenses on popular shopping and food delivery platforms",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "contextMenus",
+    "alarms",
+    "notifications"
+  ],
+  "host_permissions": [
+    "https://*.amazon.com/*",
+    "https://*.flipkart.com/*",
+    "https://*.swiggy.com/*",
+    "https://*.zomato.com/*",
+    "https://*.zepto.co/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/icon16.png",
+      "48": "images/icon48.png",
+      "128": "images/icon128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.amazon.com/*",
+        "https://*.flipkart.com/*",
+        "https://*.swiggy.com/*",
+        "https://*.zomato.com/*",
+        "https://*.zepto.co/*"
+      ],
+      "js": ["content.js"]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "16": "images/icon16.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  }
+} 
