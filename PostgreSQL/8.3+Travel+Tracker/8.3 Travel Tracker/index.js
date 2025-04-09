@@ -54,8 +54,13 @@ app.post("/add", async (req, res) => {
   try {
     // here it checks that the country exits in our DB or not
     const result = await db.query(
-      "SELECT country_code FROM countries where country_name = $1",
-      [input]
+        // '%' can easily search the name related to that country 
+        // for example -- "Tanzania Union of Republic is a country name in our DB , Now when we search only
+        // for Tanzania is got searches it uses as  '%Tanzania%' the word before and after got ignored 
+
+        // And if user can write the country name in lower case also
+      "SELECT country_code FROM countries where LOWER(country_name) LIKE '%' ||  $1 || '%;'",
+      [input.toLowerCase()]
     );
     const data = result.rows[0];
     const countryCode = data.country_code;
