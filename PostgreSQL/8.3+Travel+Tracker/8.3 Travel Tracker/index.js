@@ -18,8 +18,7 @@ db.connect();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-// Creating the API so that it can send the manually added database to Give the colour on the MAP
-app.get("/", async (req, res) => {
+async function checkVisisted(params) {
   const result = await db.query("SELECT country_code FROM visited_countries");
   // Define the countries array
   let countries = [];
@@ -34,10 +33,17 @@ app.get("/", async (req, res) => {
     countries.push(country.country_code);
   });
   // It shows the o/p for the data (rows -- shows the data into our database)
-  console.log(result.rows);
+  // console.log(result.rows);
+
+  return countries;
+}
+
+// Creating the API so that it can send the manually added database to Give the colour on the MAP
+app.get("/", async (req, res) => {
+  const countries = await checkVisisted();
   res.render("index.ejs", { countries: countries, total: countries.length });
-  
-  // Here  db.end() is not used because it ends the server 
+
+  // Here  db.end() is not used because it ends the server
   // db.end();
 });
 
@@ -45,20 +51,38 @@ app.post("/add", async (req, res) => {
   // here the user gives the input in the text field name="country"
   const input = req.body["country"];
 
-  // here it checks that the country exits in our DB or not
-  const result =await db.query(
-    "SELECT country_code FROM countries where country_name = $1",
-    [input]
-  );
-
-  if (result.rows.length !== 0) {
+  try {
+    // here it checks that the country exits in our DB or not
+    const result = await db.query(
+      "SELECT country_code FROM countries where country_name = $1",
+      [input]
+    );
     const data = result.rows[0];
     const countryCode = data.country_code;
 
-    await db.query("INSERT INTO visited_countries (country_code) VALUES ($1)", [
-      countryCode,
-    ]);
-    res.redirect("/");
+    // This try block is for if the country is already present in it
+    try {
+      await db.query(
+        "INSERT INTO visited_countries (country_code) VALUES ($1)",
+        [countryCode]
+      );
+    } catch (err) {
+      console.log(err);
+      const countries = await checkVisisted();
+      res.render("index.ejs", {
+        countries: countries,
+        total: countries.length,
+        error: "Country has already been added, try again",
+      });
+    }
+  } catch (err) {
+    console.log(err);
+    const countries = await checkVisisted();
+    res.render("index.ejs", {
+      countries: countries,
+      total: countries.length,
+      error: "Country name does not exist, try again",
+    });
   }
 });
 
